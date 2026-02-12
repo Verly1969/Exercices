@@ -17,6 +17,10 @@ export const routes: Routes = [
         loadComponent: () => import("./features/chrono/chrono").then(c => c.Chrono)
     },
     {
+        path: "product",
+        loadComponent: () => import("./features/product/product").then(p => p.Product)
+    },
+    {
         path: "**",
         loadComponent: () => import("./errors/notfound/notfound").then(e => e.Notfound)
     }

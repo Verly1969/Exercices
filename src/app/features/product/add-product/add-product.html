@@ -1,0 +1,12 @@
+<h2>Insertion de produit</h2>
+<br>
+<label for="name">Nom du produit</label>
+<br>
+<input type="text" id="name" (input)="nameSignal()">
+<br>
+<label for="price">Prix du produit</label>
+<br>
+<input type="text" id="price" (input)="priceSignal()"> €
+<br>
+<br>
+<button (click)="sendToParent()">Valider</button>

@@ -1,0 +1,10 @@
+<h2>Liste des produits</h2>
+
+<ul>
+    @for ( p of products; track p.name) {
+        <li>{{p.name}} {{p.price}}</li>
+    }
+    @empty {
+        <li>Il n'y a aucun produit !</li>
+    }
+</ul>
