@@ -1,0 +1,22 @@
+form {
+    width: 500px;
+    margin-top: 30px;
+    padding: 15px;
+    border: 1px solid darkolivegreen;
+    border-radius: 15px;
+}
+
+input {
+    padding: 5px 10px;
+}
+
+.center {
+    text-align: center;
+    width: 100%;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

@@ -1,0 +1,26 @@
+<!-- 
+Créer une application qui permet à l'utilisateur de rentrer 
+sa date de naissance via un formulaire.
+
+Vous devez créer un custom validator qui permet de vérifier 
+si la personne est majeur ou non. 
+Dans le cas où elle est mineure, elle ne pourra pas valider le 
+formulaire. 
+-->
+
+<h2>Contrôle de la majorité</h2>
+
+<form [formGroup]="ageForm" (ngSubmit)="valider()" class="left">
+    <div class="center">
+        <p>
+            <label for="dateInput">Veuillez entrer votre date de naissance.</label>
+        </p>
+        <p>
+            <input type="date" formControlName="dateInput" id="dateInput" />
+        </p>
+        @if (ageForm.get("dateInput")?.touched && ageForm.get("dateInput")?.hasError("mineur")){}
+    </div>
+    <div class="center">
+        <input type="submit" value="Valider" />
+    </div>
+</form>

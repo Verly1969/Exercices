@@ -1,6 +1,7 @@
-import { Routes } from '@angular/router';
+
 import { Home } from './features/home/home';
 import { Chrono } from './features/chrono/chrono';
+import { Routes } from '@angular/router';
 
 export const routes: Routes = [
     {
@@ -23,6 +24,10 @@ export const routes: Routes = [
     {
         path: "formulaire",
         loadComponent: () => import("./features/formulaire/formulaire").then(f => f.Formulaire)
+    },
+    {
+        path: "age_form",
+        loadComponent: () => import("./features/age-formulaire/age-formulaire").then(f => f.AgeFormulaire)
     },
     {
         path: "**",
