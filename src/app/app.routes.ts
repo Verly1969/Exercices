@@ -21,6 +21,10 @@ export const routes: Routes = [
         loadComponent: () => import("./features/product/product").then(p => p.Product)
     },
     {
+        path: "formulaire",
+        loadComponent: () => import("./features/formulaire/formulaire").then(f => f.Formulaire)
+    },
+    {
         path: "**",
         loadComponent: () => import("./errors/notfound/notfound").then(e => e.Notfound)
     }

@@ -1,0 +1,21 @@
+<h2>Formulaire dynamique</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div formArrayName="skills">
+    @for (skill of skills.controls; track $index) {
+      <div [formGroupName]="$index">
+        <div>
+          <input formControlName="name" placeholder="Nom de la compétence">
+          <select formControlName="level">
+            <option value="Débutant">Débutant</option>
+            <option value="Intermédiaire">Intermédiaire</option>
+            <option value="Avancé">Avancé</option>
+          </select>
+          <button type="button" (click)="removeSkill($index)">Supprimer</button>
+        </div>
+      </div>
+    }
+  </div>
+  <button type="button" (click)="addSkill()">Ajouter une compétence</button>
+  <button type="submit">Soumettre</button>
+</form>

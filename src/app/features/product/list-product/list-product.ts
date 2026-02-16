@@ -9,6 +9,6 @@ import { iProduct } from '../../../shared/models/interfaces/iProduct';
 })
 export class ListProduct {
 
-  products = input<iProduct[]>([]);
+  // products = input<iProduct[]>([]);
 
 }
