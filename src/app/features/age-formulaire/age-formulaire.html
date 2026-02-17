@@ -18,12 +18,16 @@ formulaire.
         <p>
             <input class="form-control" type="date" formControlName="dateNaissance" id="dateInput" />
         </p>
+        <p>
+            <input class="form-control" type="date" formControlName="dateNaissance" id="dateInput" />
+            {{ ageForm.get("dateNaissance")?.getError("mineur") }}
+        </p>
         @if (ageForm.get("dateNaissance")?.touched && ageForm.get("dateNaissance")?.hasError("mineur")){
             
             <p>{{ ageForm.get("dateNaissance")?.getError("mineur") }}</p>
         }
     </div>
     <div class="center">
-        <button [disabled]="!ageForm.valid">Valider</button>
+        <button type="submit" [disabled]="!ageForm.valid">Valider</button>
     </div>
 </form>
