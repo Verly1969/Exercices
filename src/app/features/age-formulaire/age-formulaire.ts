@@ -13,13 +13,12 @@ export class AgeFormulaire {
   private readonly _fb: FormBuilder = inject(FormBuilder);
   
   ageForm: FormGroup = this._fb.group({
-    dateInput: ["1970-01-01", Validators.required]
-  },{
-    validators: [ageValidator()]
+    dateNaissance: [null, [Validators.required, ageValidator()]]
   })
 
   valider() {
-    if (this.ageForm.valid){
+    console.log(this.ageForm.controls["dateNaissance"].value);
+    if (this.ageForm.controls["dateNaissance"].valid){
       console.log("Formulaire envoyé !");
     }
   }
