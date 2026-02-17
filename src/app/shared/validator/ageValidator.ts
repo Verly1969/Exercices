@@ -2,16 +2,22 @@ import { AbstractControl, FormControl, ValidationErrors, ValidatorFn } from "@an
 
 export function ageValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-        const dateInput = new Date(control.value);
+        const dateNaissance = control.value;
         const dateActual  = new Date();
 
-        console.log(dateActual.getFullYear());
-        console.log(dateInput.getFullYear());
+        const dateNaissanceValue = new Date(dateNaissance);
 
-        if ((dateActual.getFullYear() - dateInput.getFullYear()) < 18){
-            return { mineur : "Vous êtes trop jeune pour entrer !"};
+        const age = dateActual.getFullYear() - dateNaissanceValue.getFullYear();
+
+        // console.log(`Date actuelle: ${dateActual}`);
+        // console.log(`Date entrée: ${dateNaissanceValue}`);
+
+        console.log(`age: ${age}`);
+
+        if (age < 18){
+            return { "mineur": "Vous êtes trop jeune pour entrer !"};
+        } else {
+            return null;
         }
-
-        return null;
     }
 }

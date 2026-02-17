@@ -13,14 +13,20 @@ formulaire.
 <form [formGroup]="ageForm" (ngSubmit)="valider()" class="left">
     <div class="center">
         <p>
-            <label for="dateInput">Veuillez entrer votre date de naissance.</label>
+            <label class="form-label" for="dateInput">Veuillez entrer votre date de naissance.</label>
         </p>
         <p>
-            <input type="date" formControlName="dateInput" id="dateInput" />
+            <input class="form-control" type="date" formControlName="dateNaissance" id="dateInput" />
         </p>
-        @if (ageForm.get("dateInput")?.touched && ageForm.get("dateInput")?.hasError("mineur")){}
+        <p>
+            {{ ageForm.get("dateNaissance")?.getError("mineur") }}
+        </p>
+        @if (ageForm.get("dateNaissance")?.touched && ageForm.get("dateNaissance")?.hasError("mineur")){
+            
+            <p>{{ ageForm.get("dateNaissance")?.getError("mineur") }}</p>
+        }
     </div>
     <div class="center">
-        <input type="submit" value="Valider" />
+        <button type="submit" [disabled]="!ageForm.valid">Valider</button>
     </div>
 </form>
