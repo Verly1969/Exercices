@@ -21,4 +21,24 @@
         }
         </table>
     </div>
+    <div class="pilotes">
+        <h2>Liste des écuries</h2>
+        <table>
+            <tr>
+                <th>Nom</th>
+                <th>Moteur</th>
+            </tr>
+        @for (equipe of equipes$ | async; track $index) {
+            <tr>
+                <td>{{equipe.nom_complet}}</td>
+                <td>{{equipe.constructeur_moteur}}</td>
+            </tr>
+        }
+        @empty {
+            <tr>
+                <td colspan="2">Aucune écurie disponible</td>
+            </tr>
+        }
+        </table>
+    </div>
 </div>

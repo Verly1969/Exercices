@@ -1,6 +1,6 @@
 export interface IEcurie {
     id: string
-    name: string
-    engine: string
+    nom_complet: string
+    constructeur_moteur: string
     pilotes: string[]
 }
