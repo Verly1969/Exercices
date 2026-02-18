@@ -1,44 +1,57 @@
 <div class="container">
     <div class="pilotes">
         <h2>Liste des pilotes</h2>
-        <table>
-            <tr>
-                <th>Numéro</th>
-                <th>Nom</th>
-                <th>Ecurie</th>
-            </tr>
-        @for (pilote of pilotes$ | async; track $index) {
-            <tr>
-                <td>{{pilote.numero}}</td>
-                <td>{{pilote.nom}}</td>
-                <td>{{pilote.ecurie}}</td>
-            </tr>
-        }
-        @empty {
-            <tr>
-                <td colspan="3">Aucun pilote disponible</td>
-            </tr>
-        }
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Nom</th>
+                </tr>
+            </thead>
+            <tbody>
+            @for (pilote of pilotes$ | async; track $index) {
+                <tr>
+                    <td>{{pilote.numero}}</td>
+                    <td>{{pilote.nom}}</td>
+                </tr>
+            }
+            @empty {
+                <tr>
+                    <td colspan="2">Aucun pilote disponible</td>
+                </tr>
+            }
+            </tbody>
         </table>
     </div>
-    <div class="pilotes">
+    <div class="ecuries">
         <h2>Liste des écuries</h2>
-        <table>
-            <tr>
-                <th>Nom</th>
-                <th>Moteur</th>
-            </tr>
-        @for (equipe of equipes$ | async; track $index) {
-            <tr>
-                <td>{{equipe.nom_complet}}</td>
-                <td>{{equipe.constructeur_moteur}}</td>
-            </tr>
-        }
-        @empty {
-            <tr>
-                <td colspan="2">Aucune écurie disponible</td>
-            </tr>
-        }
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Détails</th>
+                    <th>Nom</th>
+                    <th>Moteur</th>
+                </tr>
+            </thead>
+            <tbody>
+            @for (equipe of equipes$ | async; track $index) {
+                <tr>
+                    <td><button 
+                        (click)="details(equipe.nom_complet)" 
+                        class="btn btn-primary"
+                        title="Plus de détails sur {{ equipe.nom_complet }}">?
+                        </button>
+                    </td>
+                    <td>{{equipe.nom_complet}}</td>
+                    <td>{{equipe.constructeur_moteur}}</td>
+                </tr>
+            }
+            @empty {
+                <tr>
+                    <td colspan="2">Aucune écurie disponible</td>
+                </tr>
+            }
+            </tbody>
         </table>
     </div>
 </div>

@@ -41,9 +41,18 @@ export const routes: Routes = [
     },
     {
         path: "formule",
-        loadComponent: 
-            () => import("./features/formule1/formule1")
-            .then(f => f.Formule1)
+        children: [
+            {path: "",
+                loadComponent: 
+                () => import("./features/formule1/formule1")
+                .then(f => f.Formule1)
+            },
+            {path: ":id/details",
+                loadComponent:
+                () => import("./features/formule1/details/details")
+                .then(p => p.Details)
+            }
+        ]
     },
     {
         path: "**",

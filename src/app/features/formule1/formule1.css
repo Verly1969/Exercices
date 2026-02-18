@@ -4,7 +4,12 @@
 }
 
 .pilotes {
-    width: 50%;
+    width: 40%;
+    padding: 20px;
+}
+
+.ecuries {
+    padding: 20px;
 }
 
 h2 {

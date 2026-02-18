@@ -13,8 +13,19 @@ export class EcurieService {
   // client http pour faire les requêtes
   private readonly httpClient: HttpClient = inject(HttpClient);
 
-  // méthode pour récupérer tous les pilotes
+  /**
+   * 
+   * @returns Un observable d'un tableau d'écurie
+   */
   getAllTeams(): Observable<IEcurie[]> {
     return this.httpClient.get<IEcurie[]>(this.baseUrl);
+  }
+
+  getTeamById(id: string): Observable<IEcurie> {
+    return this.httpClient.get<IEcurie>(`${this.baseUrl}/${id}`);
+  }
+
+  getPilotesByTeamId(id: string): Observable<IPilote[]> {
+    return this.httpClient.get<IPilote[]>(`${this.baseUrl}/${id}/pilotes`);
   }
 }

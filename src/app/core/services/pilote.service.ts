@@ -17,4 +17,9 @@ export class PiloteService {
   getAllPilotes(): Observable<IPilote[]> {
     return this.httpClient.get<IPilote[]>(this.baseUrl);
   }
+
+  // méthode pour récupérer un pilote par son écurie
+  getPilotesByTeamId(id: string): Observable<IPilote[]> {
+    return this.httpClient.get<IPilote[]>(`${this.baseUrl}?ecurie=${id}`);
+  }
 }

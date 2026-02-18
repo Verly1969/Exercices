@@ -1,0 +1,45 @@
+<h2>Détails de l'écurie<br>{{ ecurie }}</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nom complet</th>
+            <th>Constructeur moteur</th>
+            <th>Pays</th>
+            <th>Base</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- @for (ecurie of ecurie$ | async; track $index) { -->
+            <tr>
+                <td>{{ ecurie.nom_complet }}</td>
+                <td>{{ ecurie.constructeur_moteur }}</td>
+                <td>{{ ecurie.pays }}</td>
+                <td>{{ ecurie.base }}</td>
+            </tr>
+        <!-- } -->
+    </tbody>
+</table>
+<div>Les pilotes de cette écurie sont :</div>
+<table>
+    <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Nom</th>
+            <th>Numéro</th>
+            <th>Nom</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        @for (pilote of pilote$ | async; track $index) {
+            <td colspan="2">{{ pilote.numero }} {{ pilote.nom }}</td>
+        
+        }
+        @empty {
+            <td colspan="4">Aucun pilote trouvé pour cette écurie.</td>
+        }
+        </tr>
+    </tbody>
+</table>
+
+<button (click)="goBack()" class="btn btn-secondary">Retour à la liste des écuries</button>
